@@ -9,9 +9,10 @@ por 'good' e retorne a string resultante.
 Exemplo: 'The dinner is not that bad!' retorna 'The dinner is good!'
 """
 
-def not_bad(s):
+def not_bad(s:str) -> str:
     # +++ SUA SOLUÇÃO +++
-    return
+    idx_not, idx_bad = s.find("not"), s.find("bad")
+    return s.replace(s[idx_not:idx_bad+3], "good") if idx_bad > idx_not else s
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---

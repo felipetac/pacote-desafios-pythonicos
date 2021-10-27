@@ -8,11 +8,22 @@ Caso o comprimento seja impar, o caracter extra fica na metade da frente.
 Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
-a-frente + b-frente + a-trás + b-trás
+a_frente + b_frente + a_trás + b_trás
 """
-def front_back(a, b):
+
+
+def split_half_str(s:str) -> tuple:
+    l = len(s)
+    mod = l//2
+    idx_split = mod+1 if l % 2 != 0 else mod
+    return (s[:idx_split], s[idx_split:])
+
+
+def front_back(a:str, b:str) -> str:
     # +++ SUA SOLUÇÃO +++
-    return
+    a_front, a_back = split_half_str(a)
+    b_front, b_back = split_half_str(b)
+    return a_front + b_front + a_back + b_back
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---

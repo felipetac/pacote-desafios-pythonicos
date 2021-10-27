@@ -11,9 +11,10 @@ Dica: Isso pode ser resolvido criando 2 listas e ordenando cada uma
 antes de combina-las.
 """
 
-def front_x(words):
+def front_x(words:list) -> list:
     # +++ SUA SOLUÇÃO +++
-    return
+    words.sort()
+    return [w for w in words if w[0] == "x"] + [w for w in words if w[0] != "x"]
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---

@@ -43,17 +43,31 @@ import random
 import sys
 
 
-def mimic_dict(filename):
-  """Retorna o dicionario imitador mapeando cada palavra para a lista de
-  palavras subsequentes."""
+def mimic_dict(filename:str) -> dict:
+    """Retorna o dicionario imitador mapeando cada palavra para a lista de
+    palavras subsequentes."""
     # +++ SUA SOLUÇÃO +++
-  return
+    with open(filename) as f:
+        data = f.read()
+    word_lst = [w.lower() for w in data.split()]
+    dic = {'': [word_lst[0]]}
+    for i, w in enumerate(word_lst[:-1]):
+      if w not in dic.keys():
+        dic[w] = []
+      dic[w].append(word_lst[i+1])
+    dic[word_lst[-1]] = ["",]
+    return dic
 
 
-def print_mimic(mimic_dict, word):
-  """Dado o dicionario imitador e a palavra inicial, imprime texto de 200 palavras."""
+def print_mimic(mimic_dict:dict, word:str) -> None:
+    """Dado o dicionario imitador e a palavra inicial, imprime texto de 200 palavras."""
     # +++ SUA SOLUÇÃO +++
-  return
+    lst_tx = []
+    for i in range(0, 200):
+      r_word = random.choice(mimic_dict[word.lower()])
+      lst_tx.append(r_word)
+      word = r_word
+    print(" ".join(lst_tx))
 
 
 # Chama mimic_dict() e print_mimic()

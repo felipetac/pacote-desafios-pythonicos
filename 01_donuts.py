@@ -9,9 +9,9 @@ Exemplo: donuts(5) retorna 'Number of donuts: 5'
 e donuts(23) retorna 'Number of donuts: many'
 """
 
-def donuts(count):
+def donuts(count: int) -> str:
     # +++ SUA SOLUÇÃO +++
-    return
+    return 'Number of donuts: %d' % count if count <= 9 else 'Number of donuts: many'
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---

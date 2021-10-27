@@ -27,7 +27,7 @@ Ou seja...
 Dado um arquivo letras.txt contendo as palavras: A a C c c B b b B
 Quando você executa o programa: python wordcount.py --topcount letras.txt
 Ele deve imprimir as 20 palavras mais frequêntes seguidas
-do número de ocorrências, em ordem crescente de ocorrências.
+do número de ocorrências, em ordem decrescente de ocorrências.
 
 Por exemplo:
 
@@ -52,14 +52,36 @@ e conferindo cada etapa do seu progresso.
 """
 
 import sys
+from collections import Counter
 
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
 
+def word_count(filepath: str) -> dict:
+    with open(filepath) as f:
+        data = f.read()
+    return Counter([w.lower() for w in data.split()])
+
+
+def print_words(filename:str) -> None:
+    sort_wc = dict(sorted(word_count(filename).items(), key=lambda item: item[0]))
+    for w, c in sort_wc.items():
+        print(w, c)
+
+
+def print_top(filename:str) -> None:
+    sort_wc = dict(sorted(word_count(filename).items(), key=lambda item: item[1], reverse=True))
+    top = 1
+    for w, c in sort_wc.items():
+        if top == 20:
+            break
+        print(w, c)
+        top+=1
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
 # parêtros do programa.
+
 def main():
     if len(sys.argv) != 3:
         print('Utilização: ./13_wordcount.py {--count | --topcount} file')
