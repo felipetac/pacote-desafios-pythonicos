@@ -15,9 +15,7 @@ onde todas as instancias de stra foram substituidas por strb.
 
 def fix_start(s: str) -> str:
     # +++ SUA SOLUÇÃO +++
-    if not s or len(s) < 2:
-        return s
-    return s[0] + s[1:].replace(s[0],'*')
+    return (s[0] + s[1:].replace(s[0],'*')) if s else s
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
