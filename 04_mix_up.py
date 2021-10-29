@@ -15,7 +15,7 @@ Assuma que a e b tem tamanho 2 ou maior.
 def mix_up(a:str, b:str) -> str:
     # +++ SUA SOLUÇÃO +++
     sub_a, sub_b = a[:2], b[:2]
-    return (" ").join([(a.replace(sub_a, sub_b)), (b.replace(sub_b, sub_a))])
+    return (" ").join([(a.replace(sub_a, sub_b, 1)), (b.replace(sub_b, sub_a, 1))])
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
@@ -43,3 +43,4 @@ if __name__ == '__main__':
     test(mix_up, ('dog', 'dinner'), 'dig donner')
     test(mix_up, ('gnash', 'sport'), 'spash gnort')
     test(mix_up, ('pezzy', 'firm'), 'fizzy perm')
+    test(mix_up, ('do', 'we'), 'we do')
