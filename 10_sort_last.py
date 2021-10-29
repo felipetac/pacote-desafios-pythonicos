@@ -9,6 +9,16 @@ Irá retornar: [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 
 Dica: Use uma custom key= function para extrair o ultimo elemento de cada tupla.
 """
+
+## Função Chave Customizada
+#def getLastItem(t):
+#    return t[-1]
+
+## Feita a função customizada é só passar esta como chave na função sorted():
+#def sort_last(lst_tuples:list) -> list:
+#    # +++ SUA SOLUÇÃO +++
+#    return sorted(lst_tuples, key=getLastItem)
+
 def sort_last(lst_tuples:list) -> list:
     # +++ SUA SOLUÇÃO +++
     return sorted(lst_tuples, key=lambda x: x[-1])
