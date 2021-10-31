@@ -65,15 +65,15 @@ def word_count(filepath: str) -> dict:
 
 
 def print_words(filename:str) -> None:
-    sort_wc = dict(sorted(word_count(filename).items(), key=lambda item: item[0]))
-    for w, c in sort_wc.items():
+    sort_wc = sorted(word_count(filename).items(), key=lambda item: item[0])
+    for w, c in sort_wc:
         print(w, c)
 
 
 def print_top(filename:str) -> None:
-    sort_wc = dict(sorted(word_count(filename).items(), key=lambda item: item[1], reverse=True))
+    sort_wc = sorted(word_count(filename).items(), key=lambda item: item[1], reverse=True)
     top = 0
-    for w, c in sort_wc.items():
+    for w, c in sort_wc:
         if top == 20:
             break
         print(w, c)
