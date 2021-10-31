@@ -65,19 +65,16 @@ def word_count(filepath: str) -> dict:
 
 
 def print_words(filename:str) -> None:
-    sort_wc = sorted(word_count(filename).items(), key=lambda item: item[0])
-    for w, c in sort_wc:
+    for w, c in sorted(word_count(filename).items(), key=lambda item: item[0]):
         print(w, c)
 
 
-def print_top(filename:str) -> None:
-    sort_wc = sorted(word_count(filename).items(), key=lambda item: item[1], reverse=True)
-    top = 0
-    for w, c in sort_wc:
-        if top == 20:
+def print_top(filename:str, top:int = 20) -> None:
+    for w, c in sorted(word_count(filename).items(), key=lambda item: item[1], reverse=True):
+        if top == 0:
             break
         print(w, c)
-        top+=1
+        top-=1
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
 # parêtros do programa.
