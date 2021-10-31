@@ -61,7 +61,7 @@ from collections import Counter
 def word_count(filepath: str) -> dict:
     with open(filepath) as f:
         data = f.read()
-    return Counter([w.lower() for w in data.split()])
+    return Counter(sorted([w.lower() for w in data.split()]))
 
 
 def print_words(filename:str) -> None:
@@ -72,7 +72,7 @@ def print_words(filename:str) -> None:
 
 def print_top(filename:str) -> None:
     sort_wc = dict(sorted(word_count(filename).items(), key=lambda item: item[1], reverse=True))
-    top = 1
+    top = 0
     for w, c in sort_wc.items():
         if top == 20:
             break
