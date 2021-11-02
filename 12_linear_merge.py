@@ -12,7 +12,6 @@ A sua solução deve rodar em tempo linear, ou seja, deve fazer uma
 """
 def linear_merge(list1:list, list2:list) -> list:
     # +++ SUA SOLUÇÃO +++
-    #return list(merge(list1, list2))
     lst, i, j = [], 0, 0
     while(i<=len(list1)-1 and j<=len(list2)-1):
         if list1[i]<list2[j]:
