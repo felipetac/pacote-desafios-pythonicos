@@ -9,9 +9,34 @@ A sua solução deve rodar em tempo linear, ou seja, deve fazer uma
 única passagem em cada uma das listas.
 """
 
-def linear_merge(list1, list2):
+"""
+def linear_merge(list1:list, list2:list) -> list:
     # +++ SUA SOLUÇÃO +++
-    return sorted(list1+list2)
+    #return list(merge(list1, list2))
+    lst, i, j = [], 0, 0
+    while(i<=len(list1)-1 and j<=len(list2)-1):
+        if list1[i]<list2[j]:
+            lst.append(list1[i])
+            i+=1
+        else:
+            lst.append(list2[j])
+            j+=1
+    if i>len(list1)-1:
+        while(j<=len(list2)-1):
+            lst.append(list2[j])
+            j+=1
+    else:
+        while(i<=len(list1)-1):
+            lst.append(list1[i])
+            i+=1
+    return lst
+"""
+
+from heapq import merge
+
+def linear_merge(list1:list, list2:list) -> list:
+    # +++ SUA SOLUÇÃO +++
+    return list(merge(list1, list2))
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
