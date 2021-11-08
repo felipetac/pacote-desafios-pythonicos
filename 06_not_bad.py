@@ -9,11 +9,20 @@ por 'good' e retorne a string resultante.
 Exemplo: 'The dinner is not that bad!' retorna 'The dinner is good!'
 """
 
+'''
+# Minha Solução
 def not_bad(s:str) -> str:
     # +++ SUA SOLUÇÃO +++
     idx_not, idx_bad = s.find("not"), s.find("bad")
     return s.replace(s[idx_not:idx_bad+3], "good") if idx_bad > idx_not else s
+'''
 
+import re
+
+# Solução com Regex
+def not_bad(s: str) -> str:
+    # +++ SUA SOLUÇÃO +++
+    return re.sub(r'(not\b(.*)bad)', 'good', s)
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 

@@ -52,15 +52,26 @@ e conferindo cada etapa do seu progresso.
 """
 
 import sys
-from collections import Counter
-
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
 
+from collections import Counter
+
+'''
+def counter(lst:list) ->dict:
+    tmp = {}
+    for i in lst:
+        if not i in tmp.keys():
+            tmp[i] = 0
+        tmp[i] += 1
+    return tmp
+'''
+
 def word_count(filepath: str) -> dict:
     with open(filepath) as f:
         data = f.read()
+    #return counter(sorted([w.lower() for w in data.split()]))
     return Counter(sorted([w.lower() for w in data.split()]))
 
 
