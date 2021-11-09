@@ -55,9 +55,10 @@ def mimic_dict(filename:str) -> dict:
       if w not in dic.keys():
         dic[w] = []
       dic[w].append(word_lst[i+1])
-    if word_lst[-1] not in dic.keys():
-      dic[word_lst[-1]] = []
-    dic[word_lst[-1]].append('')
+    lst_word = word_lst[-1]
+    if lst_word not in dic.keys():
+      dic[lst_word] = []
+    dic[lst_word].append('')
     return dic
 
 
@@ -66,7 +67,7 @@ def print_mimic(mimic_dict:dict, word:str) -> None:
     # +++ SUA SOLUÇÃO +++
     lst_tx = []
     for i in range(0, 200):
-      r_word = random.choice(mimic_dict[word.lower()])
+      r_word = random.choice(mimic_dict[word])
       lst_tx.append(r_word)
       word = r_word
     print(" ".join(lst_tx))
