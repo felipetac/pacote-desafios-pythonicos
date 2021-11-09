@@ -49,13 +49,15 @@ def mimic_dict(filename:str) -> dict:
     # +++ SUA SOLUÇÃO +++
     with open(filename) as f:
         data = f.read()
-    word_lst = [w.lower() for w in data.split()]
+    word_lst = [w for w in data.split()]
     dic = {'': [word_lst[0]]}
     for i, w in enumerate(word_lst[:-1]):
       if w not in dic.keys():
         dic[w] = []
       dic[w].append(word_lst[i+1])
-    dic[word_lst[-1]] = ["",]
+    if word_lst[-1] not in dic.keys():
+      dic[word_lst[-1]] = []
+    dic[word_lst[-1]].append('')
     return dic
 
 
